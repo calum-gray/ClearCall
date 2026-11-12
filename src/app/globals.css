@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --cc-brand: #0b6e6e;
+  --cc-brand-deep: #084848;
+  --cc-ink: #143038;
+  --cc-muted: #5a737a;
+  --cc-line: rgba(11, 110, 110, 0.16);
+  --cc-panel: rgba(255, 255, 255, 0.72);
+  --cc-glow: rgba(34, 197, 168, 0.28);
+  --cc-sand: #f3f7f6;
+
+  --background: #eef5f4;
+  --foreground: #143038;
+  --card: #ffffff;
+  --card-foreground: #143038;
+  --popover: #ffffff;
+  --popover-foreground: #143038;
+  --primary: #0b6e6e;
+  --primary-foreground: #f4fffd;
+  --secondary: #d8ebe8;
+  --secondary-foreground: #084848;
+  --muted: #e3eeec;
+  --muted-foreground: #5a737a;
+  --accent: #d8ebe8;
+  --accent-foreground: #084848;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(11, 110, 110, 0.16);
+  --input: rgba(11, 110, 110, 0.18);
+  --ring: #0b6e6e;
+  --chart-1: #0b6e6e;
+  --chart-2: #1aa6a0;
+  --chart-3: #f0783c;
+  --chart-4: #2f4858;
+  --chart-5: #86cfc7;
+  --radius: 0.75rem;
+  --sidebar: #f7fbfa;
+  --sidebar-foreground: #143038;
+  --sidebar-primary: #0b6e6e;
+  --sidebar-primary-foreground: #f4fffd;
+  --sidebar-accent: #d8ebe8;
+  --sidebar-accent-foreground: #084848;
+  --sidebar-border: rgba(11, 110, 110, 0.16);
+  --sidebar-ring: #0b6e6e;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .cc-atmosphere {
+    background:
+      radial-gradient(ellipse 80% 55% at 15% -10%, var(--cc-glow), transparent 55%),
+      radial-gradient(ellipse 60% 45% at 90% 10%, rgba(11, 110, 110, 0.18), transparent 50%),
+      linear-gradient(165deg, #f7fbfa 0%, #e4f0ee 42%, #d5e8e4 100%);
+  }
+
+  .cc-hero-mesh {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+  }
+
+  .cc-signal {
+    animation: cc-pulse 4.5s ease-in-out infinite;
+  }
+
+  .cc-rise {
+    animation: cc-rise 700ms ease-out both;
+  }
+
+  .cc-rise-delay {
+    animation: cc-rise 900ms ease-out 120ms both;
+  }
+}
+
+@keyframes cc-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes cc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
