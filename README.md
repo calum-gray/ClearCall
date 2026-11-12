@@ -12,6 +12,9 @@ Clara does **not** call ChatGPT or any other paid AI API. It uses our own offlin
 npm install
 npm run dev
 ```
+### If you encounter a problem with the intial npm install
+You will most likely need to update your node types, to do that run:
+`npm install -D @types/node@^22`
 
 Then open **http://localhost:3847**.
 
